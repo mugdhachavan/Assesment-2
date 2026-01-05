@@ -2,7 +2,11 @@ namespace Payments
 {
     public class PaymentResponse
     {
-        public bool DiscountApplied { get; set; }
-        public decimal Amount { get; set; }
+        public decimal TotalAmount { get; set; }
+        public decimal Discount { get; set; }
+        public decimal FinalAmount { get; set; }
+        public string CardType { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+        public bool Success { get; set; }
     }
 }

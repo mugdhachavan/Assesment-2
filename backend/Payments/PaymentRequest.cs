@@ -1,17 +1,20 @@
-using Payments.Domain;
+using System.Collections.Generic;
 
-namespace Payments
+namespace Payments.Domain.Models
 {
     public class PaymentRequest
     {
         public decimal Amount { get; set; }
-        public CardDetails CardDetails { get; set; }
+        public List<PaymentItem> Items { get; set; } = new List<PaymentItem>(); // initialize to avoid CS8618
+        public string Currency { get; set; } = string.Empty;
+        public string OrderId { get; set; } = string.Empty;
+        public string CardNumber { get; set; } = string.Empty; // for card type detection
     }
 
-    public class CardDetails
+    public class PaymentItem
     {
-        public string CardNumber { get; set; }
-        public string Expiry { get; set; }
-        public string CVV { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
     }
 }
